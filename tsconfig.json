@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true
+    },
+    "compileOnSave": true,
+    "exclude": [
+        "node_modules"
+    ]
+}
