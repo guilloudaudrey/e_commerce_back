@@ -8,19 +8,19 @@ export class DaoUser {
         return getConnection().getRepository(User);
             
     }
-    getAllDogs(): Promise<User[]> {
+    getAllUsers(): Promise<User[]> {
         return this.getRepo().find();
     }
-    getDogById(id: number): Promise<User> {
+    getUserById(id: number): Promise<User> {
         return this.getRepo().findOneById(id);
     }
-    addDog(user: User): Promise<User> {
+    addUser(user: User): Promise<User> {
         return this.getRepo().save(user);
     }
-    removeDog(id:number): Promise<any> {
+    removeUser(id:number): Promise<any> {
         return this.getRepo().removeById(id);
     }
-    modifyDog(user: User): Promise<void> {
+    modifyUser(user: User): Promise<void> {
         return this.getRepo().updateById(user.id,user);
     }
 
