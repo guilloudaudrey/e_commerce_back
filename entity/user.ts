@@ -27,8 +27,6 @@ export class User {
     mdp: string;
 
     @Column("date")
-    dateinscription: number;
+    dateinscription: Date;
 
-    @Column()
-    isPublished: boolean;
 }
