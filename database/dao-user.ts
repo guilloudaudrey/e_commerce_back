@@ -1,19 +1,27 @@
-import {createConnection} from "typeorm";
-import {User} from "../entity/user"
+import { User } from "../entity/user";
+import { createConnection, Repository, getConnection } from "typeorm";
 
-createConnection().then(connection => {
 
-    let user = new User();
-    user.nom = "Guilloud";
-    user.prenom = "Audrey";
-    user.email = "audreyguilloud@yahoo.fr";
-    user.mdp = "simplon";
-    user.dateinscription = new Date();
+export class DaoUser {
 
-    return connection.manager
-            .save(user)
-            .then(user => {
-                console.log("user has been saved. user id is", user.id);
-            });
+    private getRepo(): Repository<User> {
+        return getConnection().getRepository(User);
+            
+    }
+    getAllDogs(): Promise<User[]> {
+        return this.getRepo().find();
+    }
+    getDogById(id: number): Promise<User> {
+        return this.getRepo().findOneById(id);
+    }
+    addDog(user: User): Promise<User> {
+        return this.getRepo().save(user);
+    }
+    removeDog(id:number): Promise<any> {
+        return this.getRepo().removeById(id);
+    }
+    modifyDog(user: User): Promise<void> {
+        return this.getRepo().updateById(user.id,user);
+    }
 
-}).catch(error => console.log(error));
+}
