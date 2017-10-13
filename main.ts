@@ -1,10 +1,10 @@
 import 'reflect-metadata';
-
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
-import {User} from './entity/user';
-import {Product} from './entity/product';
 import { createConnection } from 'typeorm';
+// import {User} from './entity/user';
+// import {Product} from './entity/product';
+// import {routerUser} from './routers/user_router'
 
 createConnection();
 
@@ -15,9 +15,11 @@ app.use(bodyParser.urlencoded({
     extended:true
 }));
 
-app.use('/user', routerUser);
+// app.use('/user', routerUser);
 
 app.listen(3000, ()=>console.log('listening on port 3000'));
+
+
 // createConnection(
     // {
         //     type: "mysql",

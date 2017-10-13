@@ -8,12 +8,12 @@
     "synchronize": true,
     "logging": false,
     "entities": [
-        "src/entity/**/*.ts"
+        "entity/**/*.ts"
     ],
     "migrations": [
-        "src/migration/**/*.ts"
+        "migration/**/*.ts"
     ],
     "subscribers": [
-        "src/subscriber/**/*.ts"
+        "subscriber/**/*.ts"
     ]
 }
