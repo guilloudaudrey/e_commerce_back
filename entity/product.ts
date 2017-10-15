@@ -1,4 +1,6 @@
-import {Entity, Column, PrimaryGeneratedColumn} from "typeorm";
+import {Entity, Column, PrimaryGeneratedColumn, ManyToOne} from "typeorm";
+import {Brand} from './brand';
+import {Category} from './category'
 
 @Entity()
 export class Product {
@@ -27,4 +29,11 @@ export class Product {
 
     @Column()
     isPublished: boolean;
+
+    @ManyToOne(type => Brand, brand => brand.products)
+    brand: Brand;
+
+    @ManyToOne(type => Category, category => category.products)
+    category: Category;
 }
+
