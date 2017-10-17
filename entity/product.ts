@@ -1,6 +1,8 @@
-import {Entity, Column, PrimaryGeneratedColumn, ManyToOne} from "typeorm";
+import {Entity, Column, PrimaryGeneratedColumn, ManyToOne, ManyToMany, JoinTable} from "typeorm";
 import {Brand} from './brand';
 import {Category} from './category'
+import { Order } from "./order";
+import { Basket } from "./basket";
 
 @Entity()
 export class Product {
@@ -25,7 +27,7 @@ export class Product {
     price: number;
 
     @Column("date")
-    dateinscription: number;
+    dateinscription: Date;
 
     @Column()
     isPublished: boolean;
@@ -35,5 +37,13 @@ export class Product {
 
     @ManyToOne(type => Category, category => category.products)
     category: Category;
+
+    @ManyToMany(type => Basket, basket => basket.products)
+    @JoinTable()
+    baskets: Category;
+
+    @ManyToMany(type => Order, order => order.products)
+    @JoinTable()
+    orders: Order[];
 }
 
