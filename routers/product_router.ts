@@ -13,22 +13,22 @@ routerProduct.get('/', (req,resp) => {
 
 routerProduct.get('/:id', (req,resp) => {
     dao.getProductById(req.params.id).then((product) => resp.json(product))
-    .catch((error) => resp.status(500).send(error));;
+    .catch((error) => resp.status(500).send(error));
 });
 
 routerProduct.post('/', (req,resp)=> {
     dao.addProduct(req.body).then(product => resp.json(product))
-    .catch((error) => resp.status(500).send(error));;
+    .catch((error) => resp.status(500).send(error));
 });
 
 routerProduct.patch('/', (req,resp)=> {
     dao.modifyProduct(req.body).then(product => resp.json(product))
-    .catch((error) => resp.status(500).send(error));;
+    .catch((error) => resp.status(500).send(error));
 });
 
 routerProduct.delete('/:id', (req,resp)=> {
     dao.removeProduct(req.params.id).then(product => resp.json(product))
-    .catch((error) => resp.status(500).send(error));;
+    .catch((error) => resp.status(500).send(error));
 });
 
 
