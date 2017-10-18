@@ -27,10 +27,7 @@ export class Product {
     price: number;
 
     @Column("date")
-    dateinscription: Date;
-
-    @Column()
-    isPublished: boolean;
+    datecreation: Date;
 
     @ManyToOne(type => Brand, brand => brand.products)
     brand: Brand;

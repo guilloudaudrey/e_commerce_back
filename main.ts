@@ -5,6 +5,9 @@ import { createConnection } from 'typeorm';
 import {User} from './entity/user';
 import {Product} from './entity/product';
 import {routerUser} from './routers/user_router'
+import { routerBrand } from './routers/brand_router';
+import { routerCat } from './routers/category_router';
+import { routerProduct } from './routers/product_router';
 
 createConnection();
 
@@ -24,6 +27,9 @@ app.use(function (req, res, next) {
 });
 
 app.use('/user', routerUser);
+app.use('/brand', routerBrand);
+app.use('/category', routerCat)
+app.use('/product', routerProduct)
 
 app.listen(3000, ()=>console.log('listening on port 3000'));
 
