@@ -11,7 +11,7 @@ routerUser.get('/', (req,resp) => {
 });
 
 routerUser.get('/:id', (req,resp) => {
-    dao.getUserById(req.params.id).then((dog) => resp.json(dog))
+    dao.getUserById(req.params.id).then((user) => resp.json(user))
     .catch((error) => resp.status(500).send(error));;
 });
 
