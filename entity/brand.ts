@@ -15,3 +15,4 @@ export class Brand {
     @OneToMany( type => Product, product => product.brand)
     products: Product[];
 }
+

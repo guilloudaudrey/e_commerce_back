@@ -29,6 +29,9 @@ export class Product {
     @Column("date")
     datecreation: Date;
 
+    @Column()
+    link:string;
+
     @ManyToOne(type => Brand, brand => brand.products)
     brand: Brand;
 
