@@ -30,5 +30,22 @@ routerUser.delete('/:id', (req,resp)=> {
     .catch((error) => resp.status(500).send(error));;
 });
 
+// routerUser.post('/authenticate', (req, resp)=>{
+//     userService.authenticate(req.body.username, req.body.password)
+//     .then((user) {
+//         if (user) {
+//             // authentication successful
+//             resp.send(user);
+//         } else {
+//             // authentication failed
+//             resp.status(400).send('Username or password is incorrect');
+//         }
+//     })
+//     .catch(function (err) {
+//         resp.status(400).send(err);
+// });
+// });
+
+
 
 

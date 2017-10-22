@@ -1,5 +1,7 @@
 import { User } from "../entity/user";
-import { createConnection, Repository, getConnection } from "typeorm";
+import { createConnection, Repository, getConnection, getManager } from "typeorm";
+import * as sha1 from "js-sha1";
+
 
 
 export class DaoUser {
@@ -23,5 +25,8 @@ export class DaoUser {
     modifyUser(user: User): Promise<void> {
         return this.getRepo().updateById(user.id,user);
     }
+
+
+
 
 }

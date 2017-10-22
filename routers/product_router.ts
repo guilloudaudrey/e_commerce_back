@@ -17,17 +17,17 @@ routerProduct.get('/:id', (req,resp) => {
 });
 
 routerProduct.post('/', (req,resp)=> {
-    dao.addProduct(req.body).then(product => resp.json(product))
+    dao.addProduct(req.body).then((product) => resp.json(product))
     .catch((error) => resp.status(500).send(error));
 });
 
-routerProduct.patch('/', (req,resp)=> {
-    dao.modifyProduct(req.body).then(product => resp.json(product))
+routerProduct.patch('/:id', (req,resp)=> {
+    dao.modifyProduct(req.body).then((product) => resp.json(product))
     .catch((error) => resp.status(500).send(error));
 });
 
 routerProduct.delete('/:id', (req,resp)=> {
-    dao.removeProduct(req.params.id).then(product => resp.json(product))
+    dao.removeProduct(req.params.id).then((product) => resp.json(product))
     .catch((error) => resp.status(500).send(error));
 });
 
