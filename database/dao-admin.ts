@@ -28,6 +28,14 @@ export class DaoAdmin {
         return this.getRepo().updateById(admin.id,admin);
     }
 
+    getAdminByLogin(pseudo:string, password:string):Admin{
+    return
+    }
+
+    getAdminByToken(token:string){
+        return
+    }
+
 
     
     

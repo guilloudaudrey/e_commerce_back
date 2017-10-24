@@ -26,6 +26,16 @@ export class DaoUser {
         return this.getRepo().updateById(user.id,user);
     }
 
+    getUserByLogin(pseudo:string, password:string):User{
+        return 
+//générer 
+    }
+
+    getUserByToken(token:string):User{
+        return
+//Renvoie un objet user
+    }
+
 
 
 

@@ -25,6 +25,6 @@ routerBrand.patch('/', (req, resp)=>{
 })
 
 routerBrand.delete('/:id', (req, resp)=>{
-    dao.removeBrand(req.params.id).then((brand)=>resp.json(brand))
+    dao.removeBrand(req.params.id).then((brand)=>resp.json({success:true}))
     .catch((error)=>resp.status(500).send(error))
 })

@@ -26,6 +26,6 @@ routerCat.patch('/', (req, resp)=>{
 })
 
 routerCat.delete('/:id', (req, resp)=>{
-    dao.removeCat(req.params.id).then((cat)=>resp.json(cat))
+    dao.removeCat(req.params.id).then((cat)=>resp.json({success:true}))
     .catch((error)=>resp.status(500).send(error))
 })
