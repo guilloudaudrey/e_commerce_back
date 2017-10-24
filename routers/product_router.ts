@@ -27,7 +27,7 @@ routerProduct.patch('/:id', (req,resp)=> {
 });
 
 routerProduct.delete('/:id', (req,resp)=> {
-    dao.removeProduct(req.params.id).then((product) => resp.json(product))
+    dao.removeProduct(req.params.id).then((product) => resp.json({success:true}))
     .catch((error) => resp.status(500).send(error));
 });
 

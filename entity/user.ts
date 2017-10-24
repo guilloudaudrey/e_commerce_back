@@ -29,6 +29,9 @@ export class User {
     })
     mdp: string;
 
+    @Column("text")
+    token: string;
+
     @Column("date")
     dateinscription: Date;
 

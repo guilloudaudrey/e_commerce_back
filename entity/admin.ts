@@ -2,12 +2,8 @@ import {Entity, PrimaryGeneratedColumn, Column, OneToMany} from "typeorm";
 
 
 @Entity()
-export class User {
+export class Admin {
 
-    constructor(pseudo:string, mdp:string){
-        this.pseudo = pseudo;
-        this.mdp = mdp;
-    }
 
     @PrimaryGeneratedColumn()
     id: number;
@@ -17,10 +13,11 @@ export class User {
     })
     pseudo: string;
 
-
     @Column({
         length: 30
     })
-    mdp: string;
+    password: string;
 
+    @Column("text")
+    token: string;
 }

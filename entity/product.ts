@@ -29,7 +29,7 @@ export class Product {
     @Column("date")
     datecreation: Date;
 
-    @Column()
+    @Column("text")
     link:string;
 
     @ManyToOne(type => Brand, brand => brand.products)
