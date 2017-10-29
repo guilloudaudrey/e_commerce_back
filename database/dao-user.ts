@@ -26,15 +26,22 @@ export class DaoUser {
         return this.getRepo().updateById(user.id,user);
     }
 
-    getUserByLogin(pseudo:string, password:string):User{
-        return 
-//générer 
-    }
 
-    getUserByToken(token:string):User{
-        return
-//Renvoie un objet user
-    }
+
+    checkUser(pseudo):Promise<User>{
+    return this.getRepo().findOne({pseudo: pseudo})
+
+}
+
+//     getUserByLogin(pseudo:string, mdp:string):Promise<User>{
+//         return this.getRepo().findOne({pseudo:pseudo, mdp:mdp})
+// //générer 
+//     }
+
+//     getUserByToken(token:string):User{
+//         return
+// //Renvoie un objet user
+//     }
 
 
 

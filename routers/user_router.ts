@@ -26,9 +26,17 @@ routerUser.patch('/', (req,resp)=> {
 });
 
 routerUser.delete('/:id', (req,resp)=> {
-    dao.removeUser(req.params.id).then(user => resp.json(user))
-    .catch((error) => resp.status(500).send(error));;
+    dao.removeUser(req.params.id).then(user => resp.json({success:true}))
+    .catch((error) => resp.status(500).send(error));
 });
+
+
+routerUser.post('/authenticate', (req, resp)=> {
+    dao.checkUser(req.body.pseudo).then(user => resp.json(user))
+    .catch((error) => resp.status(500).send(error))
+    })
+
+
 
 // routerUser.post('/authenticate', (req, resp)=>{
 //     userService.authenticate(req.body.username, req.body.password)
