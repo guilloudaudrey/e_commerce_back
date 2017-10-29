@@ -1,6 +1,9 @@
 import { User } from "../entity/user";
 import { createConnection, Repository, getConnection, getManager } from "typeorm";
 import * as sha1 from "js-sha1";
+var jwt = require('jsonwebtoken');
+
+
 
 
 
@@ -18,6 +21,7 @@ export class DaoUser {
     }
     addUser(user: User): Promise<User> {
         return this.getRepo().save(user);
+
     }
     removeUser(id:number): Promise<any> {
         return this.getRepo().removeById(id);

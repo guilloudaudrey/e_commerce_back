@@ -1,5 +1,10 @@
 import { Router } from "express";
 import { DaoUser } from "../database/dao-user";
+import { User } from "../entity/user";
+import * as sha1 from "js-sha1";
+var jwt = require('jsonwebtoken');
+var secretKey = "MaCléSecrette";
+
 
 const dao = new DaoUser();
 
@@ -16,7 +21,20 @@ routerUser.get('/:id', (req,resp) => {
 });
 
 routerUser.post('/', (req,resp)=> {
-    dao.addUser(req.body).then(user => resp.json(user))
+    let newToken = jwt.sign(
+        {id: req.body.id},
+        secretKey,
+        { 
+            expiresIn: 60 * 60 
+        }
+    );
+
+    let newUser: User = req.body;
+
+    newUser.mdp = sha1(req.body.mdp);
+    newUser.token = newToken;
+
+    dao.addUser(newUser).then(user => resp.json(user))
     .catch((error) => resp.status(500).send(error));;
 });
 
