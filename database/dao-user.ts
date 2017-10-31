@@ -30,17 +30,17 @@ export class DaoUser {
         return this.getRepo().updateById(user.id,user);
     }
 
-
-
-    checkUser(pseudo):Promise<User>{
+    checkUser(pseudo:string):Promise<User>{
     return this.getRepo().findOne({pseudo: pseudo})
+    }
 
-}
+    getUserByLogin(pseudo:string, mdp:string):Promise<User>{
+        return this.getRepo().findOne({pseudo:pseudo, mdp:mdp})
+    }
 
-//     getUserByLogin(pseudo:string, mdp:string):Promise<User>{
-//         return this.getRepo().findOne({pseudo:pseudo, mdp:mdp})
-// //générer 
-//     }
+    getUserByToken(token:string):Promise<User>{
+        return this.getRepo().findOne({token:token})
+    }
 
 //     getUserByToken(token:string):User{
 //         return

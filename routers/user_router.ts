@@ -54,6 +54,11 @@ routerUser.post('/authenticate', (req, resp)=> {
     .catch((error) => resp.status(500).send(error))
     })
 
+routerUser.post('/token', (req, resp)=> {
+        dao.getUserByToken(req.body.token).then(user => resp.json(user))
+        .catch((error) => resp.status(500).send(error))
+        })
+
 
 
 // routerUser.post('/authenticate', (req, resp)=>{
