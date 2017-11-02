@@ -2,13 +2,14 @@ import 'reflect-metadata';
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import { createConnection } from 'typeorm';
-import {User} from './entity/user';
-import {Product} from './entity/product';
-import {routerUser} from './routers/user_router'
+import { User } from './entity/user';
+import { Product } from './entity/product';
+import { routerUser } from './routers/user_router'
 import { routerBrand } from './routers/brand_router';
 import { routerCat } from './routers/category_router';
 import { routerProduct } from './routers/product_router';
 import { routerAdmin } from './routers/admin_router';
+import { routerBasket } from './routers/basket_router';
 
 createConnection();
 
@@ -32,6 +33,8 @@ app.use('/brand', routerBrand);
 app.use('/category', routerCat)
 app.use('/product', routerProduct)
 app.use('/admin', routerAdmin)
+app.use('/basket', routerBasket)
+app.use('/admin',routerAdmin)
 
 app.listen(3000, ()=>console.log('listening on port 3000'));
 

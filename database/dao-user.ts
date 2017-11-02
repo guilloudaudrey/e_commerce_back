@@ -3,10 +3,6 @@ import { createConnection, Repository, getConnection, getManager } from "typeorm
 import * as sha1 from "js-sha1";
 var jwt = require('jsonwebtoken');
 
-
-
-
-
 export class DaoUser {
 
     private getRepo(): Repository<User> {

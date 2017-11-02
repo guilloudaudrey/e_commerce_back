@@ -5,9 +5,13 @@ export class DaoBrand {
 
     private getRepo():Repository<Brand>{
 return getConnection().getRepository(Brand);
+
     }
 
+ 
+
     getAllBrands():Promise<Brand[]>{
+      
         return this.getRepo().find();
     }
 

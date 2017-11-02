@@ -1,6 +1,7 @@
-import {Entity, PrimaryGeneratedColumn, Column, OneToMany} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, OneToMany, OneToOne, JoinColumn} from "typeorm";
 import {Contact} from './contact'
 import { Order } from "./order";
+import { Basket } from "./basket";
 
 @Entity()
 export class User {
@@ -34,6 +35,9 @@ export class User {
 
     @Column("date")
     dateinscription: Date;
+
+    @OneToOne(type => Basket, basket => basket.user)
+    basket: Basket;
 
     @OneToMany( type => Contact, contact => contact.user)
     contact: Contact[];

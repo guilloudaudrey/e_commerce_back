@@ -33,21 +33,35 @@ export class Product {
     @Column("text")
     link:string;
 
+    @Column()
+    style:string;
+
+    @Column()
+    color:string;
+
+    @Column()
+    epoque:string;
+
+    @Column()
+    material:string;
+
+
+
     @ManyToOne(type => Brand, brand => brand.products)
     brand: Brand;
 
     @ManyToOne(type => Category, category => category.products)
     category: Category;
 
-    @ManyToMany(type => Basket, basket => basket.products)
-    @JoinTable()
-    baskets: Category;
+    // @ManyToMany(type => Basket, basket => basket.products)
+    // @JoinTable()
+    // baskets: Category;
 
     @ManyToMany(type => Order, order => order.products)
     @JoinTable()
     orders: Order[];
 
-    @OneToMany(type => LignePanier, lignespanier => lignespanier.product)
-    lignespanier: LignePanier;
+    // @OneToMany(type => LignePanier, lignespanier => lignespanier.product)
+    // lignespanier: LignePanier;
 }
 

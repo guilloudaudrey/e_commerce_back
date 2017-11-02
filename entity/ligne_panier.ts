@@ -16,12 +16,12 @@ export class LignePanier {
     @Column()
     prix: Date;
     
-    @ManyToOne(type => Product, product => product.lignespanier)
-    product: Product;
+    // @ManyToOne(type => Product, product => product.lignespanier)
+    // product: Product;
 
-    @ManyToOne(type => Basket, basket => basket.lignespanier)
-    basket: Basket;
+    // @ManyToOne(type => Basket, basket => basket.lignespanier)
+    // basket: Basket;
 
-    @ManyToMany(type => Product, product => product.orders)
-    products: Product[];
+    // @ManyToMany(type => Product, product => product.orders)
+    // products: Product[];
 }
