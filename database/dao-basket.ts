@@ -27,5 +27,9 @@ return getConnection().getRepository(Basket);
         return this.getRepo().updateById(basket.id, basket);
     }
 
+    getBasketByToken(token:string):Promise<Basket>{
+        return this.getRepo().findOne({token:token}, )
+    }
+
 
 }

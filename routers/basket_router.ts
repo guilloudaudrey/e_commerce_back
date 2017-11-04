@@ -30,5 +30,10 @@ routerBasket.delete('/:id', (req,resp)=> {
     .catch((error) => resp.status(500).send(error));
 });
 
+routerBasket.post('/token', (req, resp)=> {
+    dao.getBasketByToken(req.body.token).then(basket=>resp.json(basket))
+    .catch((error) => resp.status(500).send(error))
+    })
+
 
 
