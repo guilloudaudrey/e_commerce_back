@@ -1,6 +1,7 @@
 import { Product } from "../entity/product";
 import { createConnection, Repository, getConnection } from "typeorm";
 import { LignePanier } from "../entity/ligne_panier";
+import { Basket } from "../entity/basket";
 
 
 export class DaoLignePanier {
@@ -26,5 +27,10 @@ export class DaoLignePanier {
 
     modifyLignePanier(lignepanier: LignePanier): Promise<void> {
         return this.getRepo().updateById(lignepanier.id,lignepanier);
+    }
+
+    getLignePanierByBasket(basketId:number):Promise<LignePanier[]>{
+        console.log(basketId)
+        return this.getRepo().find({ where: {basketId:basketId}});
     }
 }

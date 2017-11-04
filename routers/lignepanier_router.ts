@@ -27,3 +27,8 @@ routerLignePanier.delete('/:id', (req, resp)=>{
     dao.removeLignePanier(req.params.id).then((lignepanier)=>resp.json({success:true}))
     .catch((error)=>resp.status(500).send(error))
 })
+
+routerLignePanier.post('/basket', (req, resp)=> {
+    dao.getLignePanierByBasket(req.body.basketId).then(lignepanier=>resp.json(lignepanier))
+    .catch((error) => resp.status(500).send(error))
+    })
