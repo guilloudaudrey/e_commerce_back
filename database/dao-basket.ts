@@ -8,7 +8,6 @@ return getConnection().getRepository(Basket);
     }
 
     getAllBaskets():Promise<Basket[]>{
-        console.log(this.getRepo())
         return this.getRepo().find();
     }
 
@@ -17,7 +16,6 @@ return getConnection().getRepository(Basket);
     }
 
     addBasket(basket:Basket):Promise<Basket>{
-        console.log(basket)
         return this.getRepo().save(basket);
     }
 

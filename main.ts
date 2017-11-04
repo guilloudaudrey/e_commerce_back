@@ -10,6 +10,7 @@ import { routerCat } from './routers/category_router';
 import { routerProduct } from './routers/product_router';
 import { routerAdmin } from './routers/admin_router';
 import { routerBasket } from './routers/basket_router';
+import { routerLignePanier } from './routers/lignepanier_router';
 
 createConnection();
 
@@ -35,6 +36,7 @@ app.use('/product', routerProduct)
 app.use('/admin', routerAdmin)
 app.use('/basket', routerBasket)
 app.use('/admin',routerAdmin)
+app.use('/lignepanier', routerLignePanier)
 
 app.listen(3000, ()=>console.log('listening on port 3000'));
 

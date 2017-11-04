@@ -9,6 +9,9 @@ export class Basket {
     @PrimaryGeneratedColumn()
     id: number;
 
+    @Column()
+    token:string;
+
     @OneToOne(type => User)
     @JoinColumn()
     user: User;

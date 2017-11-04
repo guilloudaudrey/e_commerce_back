@@ -16,7 +16,6 @@ routerBasket.get('/:id', (req,resp) => {
 });
 
 routerBasket.post('/', (req,resp)=> {
-    console.log(resp, req)
     dao.addBasket(req.body).then(basket => resp.json(basket))
     .catch((error) => resp.status(500).send(error));
 });
