@@ -13,10 +13,10 @@ export class Basket {
     @JoinColumn()
     user: User;
 
-    // @OneToMany(type => LignePanier, lignespanier => lignespanier.product)
-    // lignespanier: LignePanier;
+    @OneToMany(type => LignePanier, lignespanier => lignespanier.product)
+    lignespanier: LignePanier;
 
-    // @ManyToMany( type => Product, product => product.baskets)
-    // products: Product[];
+    @ManyToMany( type => Product, product => product.baskets)
+    products: Product[];
 
 }
