@@ -30,7 +30,6 @@ export class DaoLignePanier {
     }
 
     getLignePanierByBasket(basketId:number):Promise<LignePanier[]>{
-        console.log(basketId)
         return this.getRepo().find({ where: {basketId:basketId}});
     }
 }

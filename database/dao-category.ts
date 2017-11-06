@@ -26,4 +26,6 @@ export class DaoCategory{
     modifyCat(cat:Category):Promise<void>{
         return this.getRepo().updateById(cat.id, cat);
     }
+
+
 }
