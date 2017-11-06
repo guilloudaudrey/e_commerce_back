@@ -10,6 +10,9 @@ export class LignePanier {
     @PrimaryGeneratedColumn()
     id: number;
 
+    @Column()
+    price:number;
+
     @ManyToOne(type => Basket, basket => basket.lignespanier, { eager: true})
     basket: Basket;
 

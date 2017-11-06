@@ -21,5 +21,4 @@ export class Basket {
 
     @ManyToMany( type => Product, product => product.baskets)
     products: Product[];
-
 }
